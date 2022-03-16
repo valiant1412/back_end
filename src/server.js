@@ -5,8 +5,10 @@ const path = require('path');
 const app = express()
 app.use(morgan('combined'))
     //template engine
-app.engine('handlebars', handlebars.engine());
-app.set('view engine', 'handlebars');
+app.engine('hbs', handlebars.engine({
+    extname: ".hbs"
+}));
+app.set('view engine', 'hbs');
 
 app.set('views', path.join(__dirname, 'resources\\views'));
 console.log("path", path.join(__dirname, "resources/views"))
